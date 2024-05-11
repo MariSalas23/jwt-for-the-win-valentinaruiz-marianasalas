@@ -14,10 +14,8 @@ app.use(logger);
 app.use("/protected", protected);
 app.use(logger);
 
-//imprime la ruta en la consola
 
-
-// URL - Callback
+// Callback
 app.get("/", logger, (req, res) => {
   res.send("Im working :)");
 });
