@@ -8,10 +8,6 @@ app.use(express.json());
 const loginRouter = require("./routes/login");
 const protected = require("./routes/protected");
 
-
-
-
-
 app.use("/login", loginRouter);
 app.use(logger);
 
