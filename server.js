@@ -11,22 +11,17 @@ const loginRouter = require("./routes/login");
 const formRouter = require("./routes/form");
 const profileRouter = require("./routes/profile");
 const contactsRouter = require("./routes/contacts");
-const protected = require("./routes/protected");
 
 app.use("/login", loginRouter);
 app.use(logger);
 
-app.use("/form", formRouter);
-app.use(logger);
+// Middleware
 
-app.use("/profile", profileRouter);
-app.use(logger);
+const verifySessionCookie = require("./middleware/verifySessionCookie");
 
-app.use("/contacts", contactsRouter);
-app.use(logger);
-
-app.use("/protected", protected);
-app.use(logger);
+app.use("/form", verifySessionCookie, formRouter);
+app.use("/profile", verifySessionCookie, profileRouter);
+app.use("/contacts", verifySessionCookie, contactsRouter);
 
 // Callback
 
