@@ -4,7 +4,7 @@ const verifySessionCookie = require('../middleware/verifySessionCookie');
 const users = require('../assets/users');
 
 router.get('/', verifySessionCookie, (req, res) => {
-  const randomUsers = getRandomUsers(users, 10);
+  const randomUsers = getRandomUsers(users, 5);
 
   res.json(randomUsers);
 });

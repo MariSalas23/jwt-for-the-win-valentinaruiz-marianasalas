@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+const verifySessionCookie = require('../middleware/verifySessionCookie');
 
 router.post('/', (req, res) => {
   const { text } = req.body;
